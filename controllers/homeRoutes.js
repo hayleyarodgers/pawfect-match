@@ -1,29 +1,117 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Pet, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+//render homepage
 router.get('/', async (req, res) => {
-
+  res.render('homepage');
 });
 
-router.get('/project/:id', async (req, res) => {
-  
-});
-
-// this below get request might need to be updated (copied from class mini project)
-
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+//render pets adoption page
+router.get('/adoptpets', async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
+    const petData = await Pet.findAll();
+    if (!petData) {
+      res.status(400).json({ message: 'can not find pet data' });
+      return;
+    }
+    const pets = await petData.map(item => item.get({ plain: true }))
+    res.render('adoptpets', {
+      pets,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//render cat list
+router.get('/adoptpets/cat', async (req, res) => {
+  try {
+    const catsData = await Pet.findAll({ where: { type: 'cat' } });
+    if (!catsData) {
+      res.status(400).json({ message: 'can not find cat data' });
+      return;
+    }
+    const cats = await catsData.map(item => item.get({ plain: true }))
+    res.render('catList', {
+      cats,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//render each cat page
+router.get('/adoptpet/cat/:id', async (req, res) => {
+  try {
+    const catData = await Pet.findByPk(req.params.id,
+      {
+        attributes: { exclude: ['password'] },
+        include: [{ model: User }],
+      }
+    );
+    const cat = catData.get({ plain: true });
+
+    res.render('cat', {
+      ...cat,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//render dog list
+router.get('/adoptpets/dog', async (req, res) => {
+  try {
+    const dogsData = await Pet.findAll({ where: { type: 'dog' } });
+    if (!dogsData) {
+      res.status(400).json({ message: 'can not find cat data' });
+      return;
+    }
+    const dogs = await dogsData.map(item => item.get({ plain: true }))
+    res.render('dogList', {
+      dogs,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//render each dog page
+router.get('/adoptpet/dog/:id', async (req, res) => {
+  try {
+    const dogData = await Pet.findByPk(req.params.id,
+      {
+        attributes: { exclude: ['password'] },
+        include: [{ model: User }],
+      }
+    );
+    const dog = dogData.get({ plain: true });
+
+    res.render('dog', {
+      ...dog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//render dashboard page
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Pet }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('dashboard', {
       ...user,
       logged_in: true
     });
@@ -32,14 +120,22 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+//render login page
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile'); // makesure to update this :)
+    res.redirect('/pets');
     return;
   }
-
   res.render('login');
+});
+
+//render signup page
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/dashboard');
+    return;
+  }
+  res.render('signup');
 });
 
 module.exports = router;

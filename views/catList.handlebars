@@ -1,0 +1,10 @@
+<div>
+    THIS IS CATs PAGE
+    <div>
+        {{#each cats as |cat|}}
+        <div>
+            <a href="/adoptpet/cat/{{cat.id}}">{{cat.name}} is {{cat.type}}</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

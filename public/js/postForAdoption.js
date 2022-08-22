@@ -35,7 +35,7 @@ const newPetHandler = async (event) => {
 		personality &&
 		photo
 	) {
-		const response = await fetch(`./api/pets`, {
+		const response = await fetch(`api/pets`, {
 			method: 'POST',
 			body: JSON.stringify({
 				name,

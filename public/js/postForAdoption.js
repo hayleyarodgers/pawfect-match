@@ -20,9 +20,12 @@ const newPetHandler = async (event) => {
 	const personality = document.querySelector('#pet-personality').value.trim();
 
 	// Convert the photo to base64 to upload it
-	const photoFile = document.querySelector('#pet-photo').files[0]; 
-	const photo = await toBase64(photoFile);
-
+	const photoFile = document.querySelector('#pet-photo').files[0];
+	const photo = null;
+	if (photoFile) {
+		photo = await toBase64(photoFile);
+	}
+	
 	if (
 		name &&
 		location &&
@@ -59,6 +62,8 @@ const newPetHandler = async (event) => {
 				'Failed to post pet for adoption. Please make sure you have filled in all fields.'
 			);
 		}
+	} else {
+		alert('Fill in all fields.');
 	}
 };
 

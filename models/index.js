@@ -1,7 +1,10 @@
 const User = require('./User');
-const Cat = require('./Cat');
-const Dog = require('./Dog');
+const Pet = require('./Pet');
 
-//here we need to add belongs to, has many relationships etc.
+// Pet belongsTo User
+Pet.belongsTo(User);
 
-module.exports = { User, Cat, Dog };
+// User can adopt more than one pet
+User.hasMany(Pet);
+
+module.exports = { User, Pet };

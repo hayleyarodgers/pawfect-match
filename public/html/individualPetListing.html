@@ -52,13 +52,17 @@
         </div>
         <!--Comments beneath post, created dynamically-->
         <div>
-            <ol>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ol>
+          <ol id="comment-history">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
+          <form id="new-comment">
+            <label for="new-comment">Comment:</label><input type="text" id="new-comment" />
+            <button id="submit-button" class="btn btn-primary" type="submit">Submit</button>
+          </form>
         </div>
     </div>
 

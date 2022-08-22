@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <!--Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald&family=Quattrocento:wght@400;700&display=swap"/>
+    <!--Custom styling-->
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <title>Find your pawfect match for pet adoption</title>
+  </head>
+
+  <body>
+    <!--Header-->
+    <header>
+      <h1>Pawfect Match</h1>
+      <nav>
+        <ul>
+            <li><a href="#post">Post your pet</a></li>
+            <li><a href="#pets">Pets for adoption</a></li>
+            <li><a href="#dashboard">Your dashboard</a></li>
+            <li><a href="#logout">Log out</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container-fluid">
+        <h2>Let's help your pet find their Pawfect Match!</h2>
+        <p>Please tell us more about them.</p>
+        <form id="adoption-form">
+            <label for="pet-name">Name:</label><input type="text" id="pet-name" />
+            <label for="pet-location">Location:</label><input type="text" id="pet-location" />
+            <label for="pet-type">Type:</label>
+            <select name="pet-type" id="pet-type">
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+            </select>
+            <label for="pet-breed">Location:</label><input type="text" id="pet-breed" />
+            <label for="pet-sex">Sex:</label>
+            <select name="pet-sex" id="pet-sex">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+            <label for="pet-size">Type:</label>
+            <select name="pet-size" id="pet-size">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+            <label for="pet-colour">Location:</label><input type="text" id="pet-colour" />
+            <label for="pet-birthday">Estimated birthday:</label><input type="date" id="pet-birthday" name="pet-birthday">
+            <label for="pet-personality">Location:</label><input type="text" id="pet-personality" />
+            <label for="pet-photo">Attach a photo:</label> <!--Insert way to upload photo here-->
+            <button id="post-button" class="btn btn-primary" type="submit">Post</button>
+        </form>
+    </div>
+
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!--Javascript-->
+    <script src="../js/postForAdoption.js"></script>
+  </body>
+</html>

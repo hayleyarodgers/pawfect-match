@@ -11,7 +11,7 @@ Comment.init(
 			primaryKey: true,
 			autoIncrement: true,
 		},
-		username: {
+		user_id: {
 			type: DataTypes.STRING,
 			references: {
 				model: 'User',
@@ -19,7 +19,7 @@ Comment.init(
 				unique: false,
 			},
 		},
-		users_comment: {
+		user_comment: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},

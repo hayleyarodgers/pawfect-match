@@ -1,17 +1,17 @@
 [
 	{
-		"username": "sophie",
-		"users_comment": "I would love you meet your pet!",
+		"user_id": "sophie",
+		"user_comment": "I would love you meet your pet!",
 		"pet_id": "1"
 	},
 	{
-		"username": "ruben",
-		"users_comment": "OMG adorable!!",
+		"user_id": "ruben",
+		"user_comment": "OMG adorable!!",
 		"pet_id": "2"
 	},
 	{
-		"username": "marcela",
-		"users_comment": "<3",
+		"user_id": "marcela",
+		"user_comment": "<3",
 		"pet_id": "3"
 	}
 ]

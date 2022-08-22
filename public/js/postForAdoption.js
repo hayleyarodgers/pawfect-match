@@ -21,7 +21,7 @@ const newPetHandler = async (event) => {
 
 	// Convert the photo to base64 to upload it
 	const photoFile = document.querySelector('#pet-photo').files[0];
-	const photo = null;
+	let photo = null;
 	if (photoFile) {
 		photo = await toBase64(photoFile);
 	}

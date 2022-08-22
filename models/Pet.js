@@ -57,8 +57,16 @@ Pet.init(
       allowNull: false,
     },
     photo: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT('medium'),
       allowNull: false
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+        unique: false
+      }
     },
   },
   {

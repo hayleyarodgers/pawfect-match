@@ -1,3 +1,11 @@
+// Source: https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-javascript#answer-57272491
+const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
 const newPetHandler = async (event) => {
 	event.preventDefault();
 
@@ -10,7 +18,10 @@ const newPetHandler = async (event) => {
 	const colour = document.querySelector('#pet-colour').value.trim();
 	const birthday = document.querySelector('#pet-birthday').value.trim();
 	const personality = document.querySelector('#pet-personality').value.trim();
-	const photo = document.querySelector('#pet-photo').value;
+
+	// Convert the photo to base64 to upload it
+	const photoFile = document.querySelector('#pet-photo').files[0]; 
+	const photo = await toBase64(photoFile);
 
 	if (
 		name &&
@@ -24,7 +35,7 @@ const newPetHandler = async (event) => {
 		personality &&
 		photo
 	) {
-		const response = await fetch(`api/pets`, {
+		const response = await fetch(`./api/pets`, {
 			method: 'POST',
 			body: JSON.stringify({
 				name,

@@ -25,81 +25,11 @@ router.get('/adoptpets', async (req, res) => {
   }
 });
 
-//render cat list
-router.get('/adoptpets/cat', async (req, res) => {
-  try {
-    const catsData = await Pet.findAll({ where: { type: 'cat' } });
-    if (!catsData) {
-      res.status(400).json({ message: 'can not find cat data' });
-      return;
-    }
-    const cats = await catsData.map(item => item.get({ plain: true }))
-    res.render('catList', {
-      cats,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get('/project/:id', async (req, res) => {
+  
 });
 
-//render each cat page
-router.get('/adoptpets/cat/:id', async (req, res) => {
-  try {
-    const catData = await Pet.findByPk(req.params.id,
-      {
-        attributes: { exclude: ['password'] },
-        include: [{ model: User }],
-      }
-    );
-    const cat = catData.get({ plain: true });
-
-    res.render('cat', {
-      ...cat,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//render dog list
-router.get('/adoptpets/dog', async (req, res) => {
-  try {
-    const dogsData = await Pet.findAll({ where: { type: 'dog' } });
-    if (!dogsData) {
-      res.status(400).json({ message: 'can not find cat data' });
-      return;
-    }
-    const dogs = await dogsData.map(item => item.get({ plain: true }))
-    res.render('dogList', {
-      dogs,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//render each dog page
-router.get('/adoptpets/dog/:id', async (req, res) => {
-  try {
-    const dogData = await Pet.findByPk(req.params.id,
-      {
-        attributes: { exclude: ['password'] },
-        include: [{ model: User }],
-      }
-    );
-    const dog = dogData.get({ plain: true });
-
-    res.render('dog', {
-      ...dog,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// this below get request might need to be updated (copied from class mini project)
 
 //render dashboard page
 router.get('/dashboard', withAuth, async (req, res) => {

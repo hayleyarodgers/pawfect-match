@@ -1,10 +1,11 @@
 // Source: https://stackoverflow.com/questions/36280818/how-to-convert-file-to-base64-in-javascript#answer-57272491
-const toBase64 = file => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-});
+const toBase64 = (file) =>
+	new Promise((resolve, reject) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = () => resolve(reader.result);
+		reader.onerror = (error) => reject(error);
+	});
 
 const newPetHandler = async (event) => {
 	event.preventDefault();
@@ -25,7 +26,7 @@ const newPetHandler = async (event) => {
 	if (photoFile) {
 		photo = await toBase64(photoFile);
 	}
-	
+
 	if (
 		name &&
 		location &&

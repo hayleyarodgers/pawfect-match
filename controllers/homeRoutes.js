@@ -7,6 +7,11 @@ router.get('/', async (req, res) => {
   res.render('homepage');
 });
 
+//render the post for adoption page
+router.get('/postforadoption', async (req, res) => {
+  res.render('postForAdoption');
+});
+
 //render pets adoption page
 router.get('/adoptpets', async (req, res) => {
   try {

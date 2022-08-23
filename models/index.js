@@ -1,10 +1,25 @@
 const User = require('./User');
 const Pet = require('./Pet');
-
-// Pet belongsTo User
-Pet.belongsTo(User);
+const Comment = require('./Comment')
 
 // User can adopt more than one pet
-User.hasMany(Pet);
+User.hasMany(Pet, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+  });
 
-module.exports = { User, Pet };
+// Pet belongsTo User
+Pet.belongsTo(User, {
+    foreignKey: 'user_id',
+  });
+
+Pet.hasMany(Comment, {
+    foreignKey: 'pet_id',
+    onDelete: 'CASCADE'
+  });
+
+Comment.belongsTo(Pet,{
+    foreignKey: 'pet_id',
+  })
+
+module.exports = { User, Pet, Comment};

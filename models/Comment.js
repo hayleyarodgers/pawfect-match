@@ -14,7 +14,7 @@ Comment.init(
 		user_id: {
 			type: DataTypes.STRING,
 			references: {
-				model: 'User',
+				model: 'user',
 				key: 'id',
 				unique: false,
 			},
@@ -26,7 +26,7 @@ Comment.init(
 		pet_id: {
 			type: DataTypes.INTEGER,
 			references: {
-				model: 'Pet',
+				model: 'pet',
 				key: 'id',
 				unique: false,
 			},

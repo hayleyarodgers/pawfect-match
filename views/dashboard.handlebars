@@ -1,9 +1,27 @@
 <div>
-    THIS IS DASHBOARD PAGE
-    {{username}} has
-    {{pet.name}}
+    WELCOME {{username}} 
+    
+</div>
+
+<div id="pet-list">
+    {{#each pets}}
+    <div class="pet">
+        <div><label>Name:&nbsp;</label><span>{{this.name}}</span></div>
+        <div><label>Type:&nbsp;</label><span>{{this.type}}</span></div>
+        <div><label>Location:&nbsp;</label><span>{{this.location}}</span></div>
+        <div><label>Birthday:&nbsp;</label><span>{{this.birthday}}</span></div>
+        <div><label>Sex:&nbsp;</label><span>{{this.sex}}</span></div>
+        <div><label>Breed:&nbsp;</label><span>{{this.breed}}</span></div>
+        <div><label>Size:&nbsp;</label><span>{{this.size}}</span></div>
+        <div><label>Colour:&nbsp;</label><span>{{this.colour}}</span></div>
+        <div><label>Personality:&nbsp;</label><span>{{this.personality}}</span></div>
+        <div><img src="{{this.photo}}"/></div>
+    </div>
+    <button class="delete-pet" data-pet-id="{{this.id}}">Delete pet</button>
+    {{/each}}
 </div>
 
 <div>
     <a href="/postForAdoption">Add a pet</a>
 </div>
+<script src="/js/deletepet.js"></script>

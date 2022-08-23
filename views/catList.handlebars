@@ -1,9 +1,12 @@
-<div>
-    THIS IS CATs PAGE
+<div class="jumbotron">
     <div>
         {{#each cats as |cat|}}
-        <div>
-            <a href="/adoptpet/cat/{{cat.id}}">{{cat.name}} is {{cat.type}}</a>
+        <div class="">
+            <h3>
+                <a class="text-decoration-none" href="/adoptpet/cat/{{cat.id}}">{{cat.name}}</a> 
+            </h3>
+            <p>is a {{cat.sex}} {{cat.breed}} located in {{cat.location}}</p> 
+            <img src="{{cat.photo}}" alt="A ginger cat">
         </div>
         {{/each}}
     </div>

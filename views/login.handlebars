@@ -1,10 +1,21 @@
-<div>
-    <h1>THIS IS LOGIN PAGE</h1>
-    <form class="login-form">
-        <label for="email-login">Email: </label><input id="email-login" name="email" type="email" />
-        <label for="password-login">Password:</label><input id="password-login" name="password" type="password" />
-        <button type="submit">Login</button>
-    </form>
-</div>
-
+<main class="text-center ">
+    <h3 class="my-4 ">Signup here</h3>
+    <div class="jumbotron">
+        <form class="login-form">
+            <label class="d-flex justify-content-between" for="username-signup">Username:<input class="w-75 form-control" id="username-signup" name="username" type="text"></label>
+            <label class="d-flex justify-content-between"  for="email-signup">Email:<input  class="w-75 form-control input-sm" id="email-signup" name="email" type="email" /></label>
+            <label class="d-flex justify-content-between"  for="password-signup">Password:<input class="w-75 form-control input-sm" id="password-signup" name="password" type="password" /></label>
+            <button class="btn btn-secondary btn-lg"  type="submit">Signup!</button>
+        </form>
+    </div>
+    <h4>Already have an account?</h4>
+    <h3 class="text-center">login here</h3>
+    <div class="jumbotron">
+        <form class="login-form">
+            <label class="d-flex justify-content-between" for="username-login">Username:<input class="w-75 form-control input-sm" id="username-login" name="username" type="text" /></label>
+            <label class=" d-flex justify-content-between" for="password-login">Password:<input class="w-75 form-control input-sm" id="password-login" name="password" type="password" /></label>
+            <button class="btn btn-secondary btn-lg" type="submit">Login!</button>
+        </form>
+    </div>
+</main>
 <script src="/js/login.js"></script>

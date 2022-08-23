@@ -1,12 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST PAWFECT MATCH</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+		<!-- Pawfect Match CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/style.css" />
+
+		<title>Pawfect Match</title>
+
+		<!-- Pawfect Match Favicon -->
+		<link
+			rel="shortcut icon"
+			type="image/ico"
+			href="/images/favicon_lrg.png"
+		/>
+	</head>
+{{!-- Checks if the user is logged in and renders the correct nav bar --}}
+{{#if logged_in}}
+     	<header>
+			<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+				<a class="navbar-brand" href="#">
+					<img
+						src="/images/header_logo.png"
+						alt="Pawfect Match"
+						class="header logo"
+				/></a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a
+								class="nav-link font-weight-bold text-reset h4"
+								href="#"
+								>Post your pet
+								<span class="sr-only">(current)</span></a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link font-weight-bold text-reset h4"
+								href="#"
+								>Pets for adoption</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link font-weight-bold text-reset h4"
+								href="#"
+								>Dashboard</a
+							>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+ {{else}}
+	<body style="background-color: #fbedca">
+
+    		<header class="navbar">
+			<article>
+				<img
+					src="/images/header_logo.png"
+					alt="Pawfect Match"
+					class="header logo"
+				/>
+			</article>
+
+			<div class="topnav">
+				<a class="btn btn-secondary btn-lg" href="/login" role="button"
+					>Sign Up/Login</a
+				>
+			</div>
+		</header>
+{{/if}}
+{{!-- Render the sub layout --}}
     {{{body}}}
+{{!-- footer remains on each page --}}
+		<footer
+			class="text-center p-4"
+			style="background-color: #fab49a; color: #7d5445"
+		>
+			© 2022:
+			<a
+				class="text-reset fw-bold"
+				href="https://github.com/hayleyarodgers/pawfect-match"
+				>Pawfect Match</a
+			>
+		</footer>
 </body>
 </html>

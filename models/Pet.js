@@ -26,7 +26,7 @@ Pet.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    estimated_birthday: {
+    birthday: {
       type: DataTypes.DATE,
       allowNull: false,
     },

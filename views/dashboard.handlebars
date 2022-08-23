@@ -17,9 +17,11 @@
         <div><label>Personality:&nbsp;</label><span>{{this.personality}}</span></div>
         <div><img src="{{this.photo}}"/></div>
     </div>
+    <button class="delete-pet" data-pet-id="{{this.id}}">Delete pet</button>
     {{/each}}
 </div>
 
 <div>
     <a href="/postForAdoption">Add a pet</a>
 </div>
+<script src="/js/deletepet.js"></script>

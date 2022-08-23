@@ -124,7 +124,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //render login page
 router.get('/login', (req, res) => {
 	if (req.session.logged_in) {
-		res.redirect('/pets');
+		res.redirect('/adoptpets');
 		return;
 	}
 	res.render('login');

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Pet, User } = require('../models');
+const { Pet, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
 //render homepage
@@ -53,7 +53,7 @@ router.get('/adoptpet/cat/:id', async (req, res) => {
 	try {
 		const catData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
-			include: [{ model: User }],
+			include: [{ model: User },{model:Comment}],
 		});
 		const cat = catData.get({ plain: true });
 
@@ -89,7 +89,7 @@ router.get('/adoptpet/dog/:id', async (req, res) => {
 	try {
 		const dogData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
-			include: [{ model: User }],
+			include: [{ model: User },{model:Comment}],
 		});
 		const dog = dogData.get({ plain: true });
 

@@ -41,7 +41,17 @@ const createTransporter = async () => {
 //emailOptions - who sends what to whom
 const sendEmail = async (emailOptions) => {
 	let emailTransporter = await createTransporter();
-	await emailTransporter.sendMail(emailOptions);
+	await emailTransporter.sendMail({
+		...emailOptions,
+		from: process.env.MAIL_USERNAME,
+		subject: `Welcome to Pawfect Match!`,
+		function(error, info) {
+			if (error) {
+				return console.log(error);
+			}
+			console.log('Message sent: ' + info.response);
+		},
+	});
 };
 
 // These variables should come in handy when we create the notification emails.
@@ -49,10 +59,12 @@ const userEmail = 'vkellyy@gmail.com'; //add your email here to test, this will 
 const emailSubject = 'Test';
 const emailText = 'I am sending an email from nodemailer!';
 
-//The email text, subject, and recipient:
-sendEmail({
-	subject: emailSubject,
-	text: emailText,
-	to: userEmail,
-	from: process.env.MAIL_USERNAME,
-});
+// //The email text, subject, and recipient:
+// sendEmail({
+// 	subject: emailSubject,
+// 	text: emailText,
+// 	to: userEmail,
+// 	from: process.env.MAIL_USERNAME,
+// });
+
+module.exports = { sendEmail };

@@ -128,7 +128,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 //create comment for '/adoptpet/dog/:id'
-router.post('/adoptpet/dog/:id', async (req, res) => {
+router.post('/adoptpet/dog/:id', withAuth, async (req, res) => {
 	try {
 		const newComment = await Comment.create({
 			...req.body,
@@ -143,7 +143,7 @@ router.post('/adoptpet/dog/:id', async (req, res) => {
 });
 
 //create comment for '/adoptpet/cat/:id'
-router.post('/adoptpet/cat/:id', async (req, res) => {
+router.post('/adoptpet/cat/:id', withAuth, async (req, res) => {
 	try {
 		const newComment = await Comment.create({
 			...req.body,

@@ -33,7 +33,10 @@ router.get('/adoptpets', async (req, res) => {
 //render cat list
 router.get('/adoptpets/cat', async (req, res) => {
 	try {
-		const catsData = await Pet.findAll({ where: { type: 'cat' } });
+		const catsData = await Pet.findAll({ 
+			where: { type: 'cat' }, 
+			include:[{ model: User },{model:Comment}]
+		});
 		if (!catsData) {
 			res.status(400).json({ message: 'can not find cat data' });
 			return;
@@ -69,7 +72,10 @@ router.get('/adoptpet/cat/:id', async (req, res) => {
 //render dog list
 router.get('/adoptpets/dog', async (req, res) => {
 	try {
-		const dogsData = await Pet.findAll({ where: { type: 'dog' } });
+		const dogsData = await Pet.findAll({ 
+			where: { type: 'dog' },
+			include:[{ model: User },{model:Comment}] 
+		});
 		if (!dogsData) {
 			res.status(400).json({ message: 'can not find cat data' });
 			return;
@@ -116,6 +122,36 @@ router.get('/dashboard', withAuth, async (req, res) => {
 			...user,
 			logged_in: true,
 		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+//create comment for '/adoptpet/dog/:id'
+router.post('/adoptpet/dog/:id', async (req, res) => {
+	try {
+		const newComment = await Comment.create({
+			...req.body,
+			user_id: req.session.user_id,
+            pet_id: req.params.id
+		});
+
+        res.status(200).json(newComment);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+//create comment for '/adoptpet/cat/:id'
+router.post('/adoptpet/cat/:id', async (req, res) => {
+	try {
+		const newComment = await Comment.create({
+			...req.body,
+			user_id: req.session.user_id,
+            pet_id: req.params.id
+		});
+
+        res.status(200).json(newComment);
 	} catch (err) {
 		res.status(500).json(err);
 	}

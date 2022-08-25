@@ -1,9 +1,12 @@
-<div>
-    THIS IS DOGS PAGE
+<div class="jumbotron">
     <div>
         {{#each dogs as |dog|}}
-        <div>
-            <a href="/adoptpet/dog/{{dog.id}}">{{dog.name}} is {{dog.type}}</a>
+        <div class="">
+            <h3>
+                <a class="text-decoration-none" href="/adoptpet/dog/{{dog.id}}">{{dog.name}}</a> 
+            </h3>
+            <p>is a {{dog.sex}} {{dog.breed}} located in {{dog.location}}</p> 
+            <img src="{{dog.photo}}" alt="Dog photo">
         </div>
         {{/each}}
     </div>

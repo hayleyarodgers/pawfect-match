@@ -68,7 +68,13 @@ router.get('/adoptpet/cat/:id', async (req, res) => {
 	try {
 		const catData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
-			include: [{ model: User }, { model: Comment }],
+			include: [
+				{ model: User }, 
+				{
+					model: Comment, 
+					include: [ User ]
+				}
+			]
 		});
 		const cat = catData.get({ plain: true });
 

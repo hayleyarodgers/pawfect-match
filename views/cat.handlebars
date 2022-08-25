@@ -1,8 +1,33 @@
 <div>
-    THIS IS EACH CAT PAGE
+    <a href="/adoptpets/cat">Back to Cat list</a>
+    <div class="pet" data-pet="{{this.id}}">
+        <div><label>Name:&nbsp;</label><span>{{this.name}}</span></div>
+        <div><label>Type:&nbsp;</label><span>{{this.type}}</span></div>
+        <div><label>Location:&nbsp;</label><span>{{this.location}}</span></div>
+        <div><label>Birthday:&nbsp;</label><span>{{this.birthday}}</span></div>
+        <div><label>Sex:&nbsp;</label><span>{{this.sex}}</span></div>
+        <div><label>Breed:&nbsp;</label><span>{{this.breed}}</span></div>
+        <div><label>Size:&nbsp;</label><span>{{this.size}}</span></div>
+        <div><label>Colour:&nbsp;</label><span>{{this.colour}}</span></div>
+        <div><label>Personality:&nbsp;</label><span>{{this.personality}}</span></div>
+        <div><img src="{{this.photo}}"/></div>
+    </div>
     <div>
-        {{id}}
-        {{name}}
-        {{user.username}}
+        <h2>Comments</h2>
+        <div class="comments">
+            {{#each comments as |comment|}}
+            <div>
+                {{comment.user.username}}: {{comment.user_comment}}  
+            </div>
+            {{/each}}
+
+        </div>
+        <form>
+            <h3>Add new comment</h3>
+            <textarea id="new-comment"></textarea>
+            <button id="send">Send</button>
+        </form>
     </div>
 </div>
+
+<script src="/js/newComment.js"></script>

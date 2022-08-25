@@ -62,13 +62,3 @@ a {
 	background-color: #ddd;
 	width: 50rem;
 }
-
-.site {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-}
-
-.site-content {
-	flex: 1;
-}

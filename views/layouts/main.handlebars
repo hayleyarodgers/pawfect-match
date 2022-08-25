@@ -37,8 +37,9 @@
 	</head>
 {{!-- Checks if the user is logged in and renders the correct nav bar --}}
 {{#if logged_in}}
+<body style="site background-color: #fbedca">
      	<header>
-			<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+			<nav class="navbar sticky-top navbar-expand-lg navbar-light ">
                   <a class="navbar-brand" href="/">
 				<img
 					src="/images/header_logo.png"
@@ -90,8 +91,9 @@
 				</div>
 			</nav>
 		</header>
+        </body>
  {{else}}
-	<body style="background-color: #fbedca">
+	<body style="site background-color: #fbedca">
 
     		<header class="navbar">
 			<article>
@@ -115,7 +117,7 @@
     {{{body}}}
 {{!-- footer remains on each page --}}
 		<footer
-			class="text-center p-4"
+			class="text-center footer mt-auto p-4"
 			style="background-color: #fab49a; color: #7d5445"
 		>
 			© 2022:

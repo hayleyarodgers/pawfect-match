@@ -4,19 +4,7 @@ const withAuth = require('../utils/auth');
 
 //render homepage
 router.get('/', async (req, res) => {
-	try {
-		const userData = await User.findByPk(req.session.user_id, {
-			attributes: { exclude: ['password'] },
-		});
-
-		const user = userData.get({ plain: true });
-		res.render('homepage', {
-			...user,
-			logged_in: true,
-		});
-	} catch (err) {
-		res.status(500).json(err);
-	}
+	res.render('homepage');
 });
 
 //render the post for adoption page
@@ -120,14 +108,14 @@ router.get('/adoptpet/dog/:id', async (req, res) => {
 		const dogData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
 			include: [
-				{ model: User }, 
+				{ model: User },
 				{
-					model: Comment, 
-					include: [ User ]
-				}
+					model: Comment,
+					include: [User],
+				},
 			],
 		});
-		
+
 		const dog = dogData.get({ plain: true });
 
 		res.render('dog', {

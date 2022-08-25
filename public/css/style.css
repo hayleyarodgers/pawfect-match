@@ -29,3 +29,46 @@ body {
 .jumbotron {
 	padding: 2rem 4rem;
 }
+
+img {
+	max-width: 100%;
+	height: auto;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	width: 150px;
+}
+
+a {
+	color: #7d5445;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0rem;
+	width: 100%;
+	height: 80px;
+}
+
+.container {
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.bg-card {
+	background-color: #ddd;
+	width: 50rem;
+}
+
+.site {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.site-content {
+	flex: 1;
+}

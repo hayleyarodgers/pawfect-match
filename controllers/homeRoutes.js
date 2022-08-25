@@ -1,15 +1,39 @@
 const router = require('express').Router();
-const { Pet, User, Comment} = require('../models');
+const { Pet, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 //render homepage
 router.get('/', async (req, res) => {
-	res.render('homepage');
+	try {
+		const userData = await User.findByPk(req.session.user_id, {
+			attributes: { exclude: ['password'] },
+		});
+
+		const user = userData.get({ plain: true });
+		res.render('homepage', {
+			...user,
+			logged_in: true,
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
 //render the post for adoption page
 router.get('/postforadoption', async (req, res) => {
-	res.render('postForAdoption');
+	try {
+		const userData = await User.findByPk(req.session.user_id, {
+			attributes: { exclude: ['password'] },
+		});
+
+		const user = userData.get({ plain: true });
+		res.render('postForAdoption', {
+			...user,
+			logged_in: true,
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
 //render pets adoption page
@@ -33,9 +57,9 @@ router.get('/adoptpets', async (req, res) => {
 //render cat list
 router.get('/adoptpets/cat', async (req, res) => {
 	try {
-		const catsData = await Pet.findAll({ 
-			where: { type: 'cat' }, 
-			include:[{ model: User },{model:Comment}]
+		const catsData = await Pet.findAll({
+			where: { type: 'cat' },
+			include: [{ model: User }, { model: Comment }],
 		});
 		if (!catsData) {
 			res.status(400).json({ message: 'can not find cat data' });
@@ -56,7 +80,7 @@ router.get('/adoptpet/cat/:id', async (req, res) => {
 	try {
 		const catData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
-			include: [{ model: User },{model:Comment}],
+			include: [{ model: User }, { model: Comment }],
 		});
 		const cat = catData.get({ plain: true });
 
@@ -72,9 +96,9 @@ router.get('/adoptpet/cat/:id', async (req, res) => {
 //render dog list
 router.get('/adoptpets/dog', async (req, res) => {
 	try {
-		const dogsData = await Pet.findAll({ 
+		const dogsData = await Pet.findAll({
 			where: { type: 'dog' },
-			include:[{ model: User },{model:Comment}] 
+			include: [{ model: User }, { model: Comment }],
 		});
 		if (!dogsData) {
 			res.status(400).json({ message: 'can not find cat data' });
@@ -95,7 +119,7 @@ router.get('/adoptpet/dog/:id', async (req, res) => {
 	try {
 		const dogData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
-			include: [{ model: User },{model:Comment}],
+			include: [{ model: User }, { model: Comment }],
 		});
 		const dog = dogData.get({ plain: true });
 
@@ -133,10 +157,10 @@ router.post('/adoptpet/dog/:id', withAuth, async (req, res) => {
 		const newComment = await Comment.create({
 			...req.body,
 			user_id: req.session.user_id,
-            pet_id: req.params.id
+			pet_id: req.params.id,
 		});
 
-        res.status(200).json(newComment);
+		res.status(200).json(newComment);
 	} catch (err) {
 		res.status(500).json(err);
 	}
@@ -148,10 +172,10 @@ router.post('/adoptpet/cat/:id', withAuth, async (req, res) => {
 		const newComment = await Comment.create({
 			...req.body,
 			user_id: req.session.user_id,
-            pet_id: req.params.id
+			pet_id: req.params.id,
 		});
 
-        res.status(200).json(newComment);
+		res.status(200).json(newComment);
 	} catch (err) {
 		res.status(500).json(err);
 	}

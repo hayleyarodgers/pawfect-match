@@ -119,8 +119,15 @@ router.get('/adoptpet/dog/:id', async (req, res) => {
 	try {
 		const dogData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
-			include: [{ model: User }, { model: Comment }],
+			include: [
+				{ model: User }, 
+				{
+					model: Comment, 
+					include: [ User ]
+				}
+			],
 		});
+		
 		const dog = dogData.get({ plain: true });
 
 		res.render('dog', {
@@ -146,36 +153,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
 			...user,
 			logged_in: true,
 		});
-	} catch (err) {
-		res.status(500).json(err);
-	}
-});
-
-//create comment for '/adoptpet/dog/:id'
-router.post('/adoptpet/dog/:id', withAuth, async (req, res) => {
-	try {
-		const newComment = await Comment.create({
-			...req.body,
-			user_id: req.session.user_id,
-			pet_id: req.params.id,
-		});
-
-		res.status(200).json(newComment);
-	} catch (err) {
-		res.status(500).json(err);
-	}
-});
-
-//create comment for '/adoptpet/cat/:id'
-router.post('/adoptpet/cat/:id', withAuth, async (req, res) => {
-	try {
-		const newComment = await Comment.create({
-			...req.body,
-			user_id: req.session.user_id,
-			pet_id: req.params.id,
-		});
-
-		res.status(200).json(newComment);
 	} catch (err) {
 		res.status(500).json(err);
 	}

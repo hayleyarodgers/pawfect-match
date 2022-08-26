@@ -30,6 +30,10 @@ body {
 	padding: 2rem 4rem;
 }
 
+a {
+	color: #7d5445;
+}
+
 img {
 	max-width: 100%;
 	height: auto;
@@ -39,8 +43,8 @@ img {
 	width: 150px;
 }
 
-a {
-	color: #7d5445;
+.logo {
+	border: 0;
 }
 
 .footer {

@@ -1,13 +1,20 @@
-<div class="jumbotron">
-    <div>
+<main class="site-content">
+
+<h2 class="py-3 text-center fw-bold">Find your new best furry friend.</h2>
+<hr class="my-3" />
+<div class="container">
         {{#each dogs as |dog|}}
-        <div class="">
-            <h3>
+  <div class="bg-card d-flex justify-content-around mx-2 my-4 shadow-sm p-3 mb-5 bg-body rounded">
+        <span>
+        <h3>
                 <a class="text-decoration-none" href="/adoptpet/dog/{{dog.id}}">{{dog.name}}</a> 
             </h3>
-            <p>is a {{dog.sex}} {{dog.breed}} located in {{dog.location}}</p> 
-            <img src="{{dog.photo}}" alt="Dog photo">
-        </div>
-        {{/each}}
+            <p class="link-dark">is a {{dog.sex}} {{dog.breed}} located in {{dog.location}}</p> 
+            <a class="" href="/adoptpet/dog/{{dog.id}}">read more</a> 
+        </span>
+        <img src="{{dog.photo}}" alt="Photo of dog">
     </div>
+{{/each}}
 </div>
+
+</main>

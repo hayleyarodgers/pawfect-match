@@ -88,8 +88,13 @@ a {
     object-fit: cover;
 }
 
-/* Custom list styling */
+/* Custom card styling */
 .bg-card {
+	background-color: var(--light-pink);
+	width: 50rem;
+}
+
+#adoption-form {
 	background-color: var(--light-pink);
 	width: 50rem;
 }

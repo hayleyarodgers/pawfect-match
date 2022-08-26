@@ -15,6 +15,9 @@
 body {
 	color: #7d5445;
 	background: #fbedca;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .header logo {

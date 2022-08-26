@@ -5,47 +5,31 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-		<!-- Pawfect Match CSS -->
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-			crossorigin="anonymous"
-		/>
-		<link
-			href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="/css/style.css" />
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"/>
+        <!--Fonts-->
+        <link rel="stylesheet" href=""/>
+        <!--Custom styling-->
+        <link rel="stylesheet" href="/css/reset.css"/>
+		<link rel="stylesheet" href="/css/style.css"/>
+        <!--Favicon -->
+		<link rel="shortcut icon" type="image/ico" href="/images/favicon_lrg.png"/>
 
-		<title>Pawfect Match</title>
-
-		<!-- Pawfect Match Favicon -->
-		<link
-			rel="shortcut icon"
-			type="image/ico"
-			href="/images/favicon_lrg.png"
-		/>
+		<title>Find your pawfect match for pet adoption</title>
 	</head>
-{{!-- Checks if the user is logged in and renders the correct nav bar --}}
-{{#if logged_in}}
-<body style="site background-color: #fbedca">
+
+    <!-- Checks if the user is logged in and renders the correct nav bar -->
+    {{#if logged_in}}
+    <body>
      	<header>
 			<nav class="navbar sticky-top navbar-expand-lg navbar-light ">
-                  <a class="navbar-brand" href="/">
-				<img
-					src="/images/header_logo.png"
-					alt="Pawfect Match"
-					class="header logo"
-				/>
+                <a class="navbar-brand" href="/">
+                    <img
+                        src="/images/header_logo.png"
+                        alt="Pawfect Match"
+                        class="header logo"
+                    />
                 </a>
 				<button
 					class="navbar-toggler"
@@ -55,7 +39,7 @@
 					aria-controls="navbarNav"
 					aria-expanded="false"
 					aria-label="Toggle navigation"
-				>
+				    >
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse justify-content-around" id="navbarNav">
@@ -83,19 +67,18 @@
 							>
 						</li>
 					</ul>
-                    	<div class="topnav">
-				<a class="btn btn-secondary btn-lg" id="logout" href="/" role="button"
-					>Logout</a
-				>
-			</div>
+                    <div class="topnav">
+				        <a class="btn btn-secondary btn-lg" id="logout" href="/" role="button"
+					    >Logout</a
+				        >
+			        </div>
 				</div>
 			</nav>
 		</header>
-        </body>
- {{else}}
-	<body style="site background-color: #fbedca">
-
-    		<header class="navbar">
+    </body>
+    {{else}}
+	<body>
+    	<header class="navbar">
 			<article>
                 <a href="/">
 				<img
@@ -112,14 +95,14 @@
 				>
 			</div>
 		</header>
-{{/if}}
-{{!-- Render the sub layout --}}
-    {{{body}}}
-{{!-- footer remains on each page --}}
+    {{/if}}
+    <!-- Render the sub layout -->
+        {{{body}}}
+    <!-- footer remains on each page -->
 		<footer
 			class="text-center footer mt-auto p-4"
 			style="background-color: #fab49a; color: #7d5445"
-		>
+		    >
 			© 2022:
 			<a
 				class="text-reset fw-bold"
@@ -127,5 +110,5 @@
 				>Pawfect Match</a
 			>
 		</footer>
-</body>
+    </body>
 </html>

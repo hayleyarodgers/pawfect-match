@@ -1,33 +1,47 @@
-<div>
-    <a href="/adoptpets/cat">Back to Cat list</a>
-    <div class="pet" data-pet="{{this.id}}">
-        <div><label>Name:&nbsp;</label><span>{{this.name}}</span></div>
-        <div><label>Type:&nbsp;</label><span>{{this.type}}</span></div>
-        <div><label>Location:&nbsp;</label><span>{{this.location}}</span></div>
-        <div><label>Birthday:&nbsp;</label><span>{{format_date this.birthday}}</span></div>
-        <div><label>Sex:&nbsp;</label><span>{{this.sex}}</span></div>
-        <div><label>Breed:&nbsp;</label><span>{{this.breed}}</span></div>
-        <div><label>Size:&nbsp;</label><span>{{this.size}}</span></div>
-        <div><label>Colour:&nbsp;</label><span>{{this.colour}}</span></div>
-        <div><label>Personality:&nbsp;</label><span>{{this.personality}}</span></div>
-        <div><img src="{{this.photo}}"/></div>
-    </div>
-    <div>
-        <h2>Comments</h2>
-        <div class="comments">
-            {{#each comments as |comment|}}
-            <div>
-                {{comment.user.username}}: {{comment.user_comment}}  
+<div class="m-5">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-5 col" data-pet="{{this.id}}">
+            <div class=" pet-photo"><img src="{{this.photo}}" /></div>
+            <div class=" pet-name"><label class="pet-label">Name:&nbsp;</label><span
+                    class="pet-info">{{this.name}}</span></div>
+            <div class="pet-type"><label class="pet-label">Type:&nbsp;</label><span
+                    class="pet-info">{{this.type}}</span></div>
+            <div class="pet-location"><label class="pet-label">Location:&nbsp;</label><span
+                    class="pet-info">{{this.location}}</span></div>
+            <div class="pet-birthday"><label class="pet-label">Birthday:&nbsp;</label><span
+                    class="pet-info">{{format_date this.birthday}}</span></div>
+            <div class="pet-sex"><label class="pet-label">Sex:&nbsp;</label><span class="pet-info">{{this.sex}}</span>
             </div>
-            {{/each}}
+            <div class="pet-breed"><label class="pet-label">Breed:&nbsp;</label><span
+                    class="pet-info">{{this.breed}}</span></div>
+            <div class="pet-size"><label class="pet-label">Size:&nbsp;</label><span
+                    class="pet-info">{{this.size}}</span></div>
+            <div class="pet-color"><label class="pet-label">Colour:&nbsp;</label><span
+                    class="pet-info">{{this.colour}}</span></div>
+            <div class="pet-personality"><label class="pet-label">Personality:&nbsp;</label><span
+                    class="pet-info">{{this.personality}}</span></div>
+        </div>
+        <div class="pet-comment col-lg-4 col">
+            <div class="comment-title">Comments</div>
+            <div class="comments">
+                {{#each comments as |comment|}}
+                <div>
+                    {{comment.user.username}}: {{comment.user_comment}}
+                </div>
+                {{/each}}
+            </div>
+            <form>
+                <div class="comment-title">Add new comment</div>
+                <textarea id="new-comment"></textarea>
+                <div><button class="btn btn-secondary btn-md" id="send">Send</button></div>
+            </form>
+            <div class="back-link"> <a href="/adoptpets/dog">Back to Cat list</a></div>
 
         </div>
-        <form>
-            <h3>Add new comment</h3>
-            <textarea id="new-comment"></textarea>
-            <button id="send">Send</button>
-        </form>
+        <div class="col-lg-1 col-1"></div>
     </div>
+
 </div>
 
 <script src="/js/newComment.js"></script>

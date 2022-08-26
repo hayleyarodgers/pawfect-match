@@ -58,3 +58,26 @@ img {
 	background-color: #ddd;
 	width: 50rem;
 }
+
+.pet-label{
+	color:#0799a5;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+.pet-info{
+	letter-spacing: 0.5px;
+	font-size: 1.2rem;
+}
+
+.comment-title{
+	font-size: 1.5rem;
+	color:#0799a5;
+	letter-spacing: 1px;
+	padding-top: 10%;
+}
+
+.back-link{
+	padding-top: 5%;
+	text-decoration: underline;
+}

@@ -28,6 +28,10 @@ h3 {
     font-size: 2.5rem;
 }
 
+a {
+	color: var(--brown);
+}
+
 .form-control {
     font-size: 1.5rem;
 }
@@ -35,21 +39,10 @@ h3 {
 .italics {
     font-style: italic;
 }
-
-a {
-	color: var(--brown);
+.bold {
+    font-weight: 500;
 }
 
-.pet-label {
-	color:#0799a5;
-	letter-spacing: 1px;
-	font-weight: bold;
-}
-
-.pet-info {
-	letter-spacing: 0.5px;
-	font-size: 1.2rem;
-}
 
 /* Custom button styling */
 .btn-secondary {
@@ -79,7 +72,7 @@ a {
 }
 
 /* Custom image styling */
-img {
+.tile {
 	max-width: 100%;
 	height: auto;
 	border-radius: 4px;
@@ -88,14 +81,14 @@ img {
     object-fit: cover;
 }
 
-/* Custom container styling */
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
+.large-image {
+    max-width: 100%;
+	height: auto;
+	padding: none;
+    object-fit: cover;
 }
 
+/* Custom list styling */
 .bg-card {
 	background-color: var(--light-pink);
 	width: 50rem;

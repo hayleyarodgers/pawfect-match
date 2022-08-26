@@ -1,17 +1,32 @@
 [
   {
-    "username": "sophie",
+    "username": "Sophie",
     "email": "shopie25@hotmail.com",
     "password": "password12345"
   },
   {
-    "username": "ruben",
+    "username": "Ruben",
     "email": "rubeno@gmail.com",
     "password": "password12345"
   },
   {
-    "username": "marcela",
+    "username": "Marcela",
     "email": "marcelamejia@hotmail.com",
     "password": "password12345"
+  },
+  {
+    "username": "Amiko",
+    "email": "amiko77@hotmail.com",
+    "password": "Pasxword!1"
+  },
+  {
+    "username": "Romina",
+    "email": "romleigh@hotmail.com",
+    "password": "hello123*"
+  },
+  {
+    "username": "Darcy",
+    "email": "darcy@gmail.com",
+    "password": "darcypassword1"
   }
 ]

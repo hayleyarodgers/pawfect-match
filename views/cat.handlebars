@@ -1,47 +1,64 @@
-<div class="m-5">
-    <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-5 col" data-pet="{{this.id}}">
-            <div class=" pet-photo"><img src="{{this.photo}}" /></div>
-            <div class=" pet-name"><label class="pet-label">Name:&nbsp;</label><span
-                    class="pet-info">{{this.name}}</span></div>
-            <div class="pet-type"><label class="pet-label">Type:&nbsp;</label><span
-                    class="pet-info">{{this.type}}</span></div>
-            <div class="pet-location"><label class="pet-label">Location:&nbsp;</label><span
-                    class="pet-info">{{this.location}}</span></div>
-            <div class="pet-birthday"><label class="pet-label">Birthday:&nbsp;</label><span
-                    class="pet-info">{{format_date this.birthday}}</span></div>
-            <div class="pet-sex"><label class="pet-label">Sex:&nbsp;</label><span class="pet-info">{{this.sex}}</span>
+<div class="m-5" data-pet="{{this.id}}">
+    <h2>{{this.name}}</h2>
+    <p>is a {{this.sex}} {{this.breed}} located in {{this.location}}.</p>
+    <br>
+    <div class="container mx-0 px-0">
+        <div class="row mx-0">
+            <div class="col-7 px-0 mr-5">
+                <img class="large-image" src="{{this.photo}}"/>
             </div>
-            <div class="pet-breed"><label class="pet-label">Breed:&nbsp;</label><span
-                    class="pet-info">{{this.breed}}</span></div>
-            <div class="pet-size"><label class="pet-label">Size:&nbsp;</label><span
-                    class="pet-info">{{this.size}}</span></div>
-            <div class="pet-color"><label class="pet-label">Colour:&nbsp;</label><span
-                    class="pet-info">{{this.colour}}</span></div>
-            <div class="pet-personality"><label class="pet-label">Personality:&nbsp;</label><span
-                    class="pet-info">{{this.personality}}</span></div>
-        </div>
-        <div class="pet-comment col-lg-4 col">
-            <div class="comment-title">Comments</div>
-            <div class="comments">
-                {{#each comments as |comment|}}
-                <div>
-                    {{comment.user.username}}: {{comment.user_comment}}
+            <div id="pet-details col-5">
+                <div class="pet-name">
+                    <label class="bold">Name:&nbsp;</label><span class="pet-info">{{this.name}}</span>
                 </div>
-                {{/each}}
+                <div class="pet-type">
+                    <label class="bold">Type:&nbsp;</label><span class="pet-info">{{this.type}}</span>
+                </div>
+                <div class="pet-location">
+                    <label class="bold">Location:&nbsp;</label><span class="pet-info">{{this.location}}</span>
+                </div>
+                <div class="pet-birthday">
+                    <label class="bold">Birthday:&nbsp;</label><span class="pet-info">{{format_date this.birthday}}</span>
+                </div>
+                <div class="pet-sex">
+                    <label class="bold">Sex:&nbsp;</label><span class="pet-info">{{this.sex}}</span>
+                </div>
+                <div class="pet-breed">
+                    <label class="bold">Breed:&nbsp;</label><span class="pet-info">{{this.breed}}</span>
+                </div>
+                <div class="pet-size">
+                    <label class="bold">Size:&nbsp;</label><span class="pet-info">{{this.size}}</span>
+                </div>
+                <div class="pet-color">
+                    <label class="bold">Colour:&nbsp;</label><span class="pet-info">{{this.colour}}</span>
+                </div>
+                <div class="pet-personality">
+                    <label class="bold">Personality:&nbsp;</label><span class="pet-info">{{this.personality}}</span>
+                </div>
             </div>
-            <form>
-                <div class="comment-title">Add new comment</div>
-                <textarea id="new-comment"></textarea>
-                <div><button class="btn btn-secondary btn-md" id="send">Send</button></div>
-            </form>
-            <div class="back-link"> <a href="/adoptpet/cat">Back to Cat list</a></div>
-
         </div>
-        <div class="col-lg-1 col-1"></div>
     </div>
-
+    <br>
+    <div id="pet-comment">
+        <h3>Comments</h3>
+        <div class="comments">
+            {{#each comments as |comment|}}
+            <div>
+                {{comment.user.username}}: {{comment.user_comment}}
+            </div>
+            {{/each}}
+        </div>
+        <br>
+        <form>
+            <p class="italics">Add a comment: </p>
+            <div>
+                <textarea id="new-comment"></textarea>
+                <div><button class="btn btn-secondary btn-md my-4 px-5" id="send">POST</button></div>
+            </div>
+        </form>
+        <br>
+        <div class="back-link"> <a href="/adoptpet/cat">← Back to cats</a></div>
+    </div>
 </div>
 
 <script src="/js/newComment.js"></script>

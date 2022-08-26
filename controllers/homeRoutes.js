@@ -25,7 +25,7 @@ router.get('/postforadoption', async (req, res) => {
 });
 
 //render pets adoption page
-router.get('/adoptpets', async (req, res) => {
+router.get('/adoptpet', async (req, res) => {
 	try {
 		const petData = await Pet.findAll();
 		if (!petData) {
@@ -33,7 +33,7 @@ router.get('/adoptpets', async (req, res) => {
 			return;
 		}
 		const pets = await petData.map((item) => item.get({ plain: true }));
-		res.render('adoptpets', {
+		res.render('adoptpet', {
 			pets,
 			logged_in: req.session.logged_in,
 		});
@@ -43,7 +43,7 @@ router.get('/adoptpets', async (req, res) => {
 });
 
 //render cat list
-router.get('/adoptpets/cat', async (req, res) => {
+router.get('/adoptpet/cat', async (req, res) => {
 	try {
 		const catsData = await Pet.findAll({
 			where: { type: 'cat' },
@@ -69,12 +69,12 @@ router.get('/adoptpet/cat/:id', async (req, res) => {
 		const catData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
 			include: [
-				{ model: User }, 
+				{ model: User },
 				{
-					model: Comment, 
-					include: [ User ]
-				}
-			]
+					model: Comment,
+					include: [User],
+				},
+			],
 		});
 		const cat = catData.get({ plain: true });
 
@@ -88,7 +88,7 @@ router.get('/adoptpet/cat/:id', async (req, res) => {
 });
 
 //render dog list
-router.get('/adoptpets/dog', async (req, res) => {
+router.get('/adoptpet/dog', async (req, res) => {
 	try {
 		const dogsData = await Pet.findAll({
 			where: { type: 'dog' },
@@ -155,7 +155,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //render login page
 router.get('/login', (req, res) => {
 	if (req.session.logged_in) {
-		res.redirect('/adoptpets');
+		res.redirect('/adoptpet');
 		return;
 	}
 	res.render('login');

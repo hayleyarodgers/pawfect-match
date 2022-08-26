@@ -1,20 +1,18 @@
 <main class="site-content">
-
-<h2 class="py-3 text-center fw-bold">Find your new best furry friend.</h2>
-<hr class="my-3" />
-<div class="container">
-{{#each cats as |cat|}}
-    <div class="bg-card d-flex justify-content-around mx-2 my-4 shadow-sm p-3 mb-5 bg-body rounded">
-        <span>
-        <h3>
-            <a class="text-decoration-none" href="/adoptpet/cat/{{cat.id}}">{{cat.name}}</a> 
-        </h3>
-        <p class="link-dark">is a {{cat.sex}} {{cat.breed}} located in {{cat.location}}</p> 
-        <a class="" href="/adoptpet/cat/{{cat.id}}">read more</a> 
-        </span>
-        <img src="{{cat.photo}}" alt="A ginger cat">
+    <h2 class="py-3 text-center fw-bold">Find your new best furry friend.</h2>
+    <hr class="my-3" />
+    <div class="container">
+    {{#each cats as |cat|}}
+        <div class="bg-card d-flex justify-content-around mx-2 my-4 shadow-sm p-3 mb-5 bg-body rounded">
+            <span>
+                <h3>
+                    <a class="text-decoration-none" href="/adoptpet/cat/{{cat.id}}">{{cat.name}}</a> 
+                </h3>
+                <p class="link-dark">is a {{cat.sex}} {{cat.breed}} located in {{cat.location}}</p> 
+                <a class="" href="/adoptpet/cat/{{cat.id}}">read more</a> 
+            </span>
+            <img src="{{cat.photo}}" alt="Photo of cat">
+        </div>
+    {{/each}}
     </div>
-{{/each}}
-</div>
-
 </main>

@@ -4,6 +4,7 @@
     --font-main: 'Poppins', sans-serif;
     --brown: #7d5445;
     --pink: #fab49a;
+    --light-pink: #fab49a2b;
 }
 
 /* Custom font and size styling */
@@ -27,8 +28,40 @@ h3 {
     font-size: 2.5rem;
 }
 
+.form-control {
+    font-size: 1.5rem;
+}
+
 .italics {
     font-style: italic;
+}
+
+a {
+	color: var(--brown);
+}
+
+.pet-label {
+	color:#0799a5;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+.pet-info {
+	letter-spacing: 0.5px;
+	font-size: 1.2rem;
+}
+
+/* Custom button styling */
+.btn-secondary {
+    font-size: 1.65rem;
+    background-color: var(--brown);
+    border-color: var(--brown);
+}
+
+/* Custom header styling */
+.header .logo {
+	height: 100%;
+	padding: 20px;
 }
 
 .navbar {
@@ -45,33 +78,17 @@ h3 {
 	margin-top: 0px;
 }
 
-.header .logo {
-	height: 100%;
-	padding: 20px;
-}
-
-.btn-secondary {
-    font-size: 1.65rem;
-    background-color: var(--brown);
-    border-color: var(--brown);
-}
-
-.form-control {
-    font-size: 1.5rem;
-}
-
-a {
-	color: var(--brown);
-}
-
+/* Custom image styling */
 img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 4px;
 	padding: 5px;
 	width: 150px;
+    object-fit: cover;
 }
 
+/* Custom container styling */
 .container {
 	display: flex;
 	align-items: center;
@@ -80,33 +97,11 @@ img {
 }
 
 .bg-card {
-	background-color: #ddd;
+	background-color: var(--light-pink);
 	width: 50rem;
 }
 
-.pet-label{
-	color:#0799a5;
-	letter-spacing: 1px;
-	font-weight: bold;
-}
-
-.pet-info{
-	letter-spacing: 0.5px;
-	font-size: 1.2rem;
-}
-
-.comment-title{
-	font-size: 1.5rem;
-	color:#0799a5;
-	letter-spacing: 1px;
-	padding-top: 10%;
-}
-
-.back-link{
-	padding-top: 5%;
-	text-decoration: underline;
-}
-
+/* Custom footer styling */
 footer {
     background: var(--pink);
 	color: var(--brown);

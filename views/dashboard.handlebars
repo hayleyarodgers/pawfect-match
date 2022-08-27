@@ -13,15 +13,15 @@
                 {{#each pets as |pet|}}
                 <div class="container">
                     <div class="row bg-card d-flex mx-auto shadow-sm p-3 bg-body rounded justify-content-between">
-                        <span class="col-8">
+                        <div class="col-lg-8">
                             <h3>
                                 <a class="text-decoration-none" href="/adoptpet/{{pet.type}}/{{pet.id}}">{{pet.name}}</a> 
                             </h3>
                             <p class="link-dark">is a {{pet.sex}} {{pet.breed}} located in {{pet.location}}.</p> 
                             <a class="italics" href="/adoptpet/{{pet.type}}/{{pet.id}}">See comments →</a>
                             <div><button class="delete-pet" class="btn btn-secondary btn-lg my-4 px-5" data-pet-id="{{this.id}}">DELETE LISTING</button></div>
-                        </span>
-                        <img class="tile col-3" src="{{pet.photo}}" alt="Photo of pet">
+                        </div>
+                        <img class="tile col-lg-4 my-2 my-lg-0" src="{{pet.photo}}" alt="Photo of pet">
                     </div>
                     <br>
                 </div>

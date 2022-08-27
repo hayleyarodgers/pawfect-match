@@ -2,7 +2,7 @@ const loginFormHandler = async (event) => {
 	event.preventDefault();
 
 	// Collect values from the login form
-	const email = document.querySelector('#username-login').value.trim();
+	const email = document.querySelector('#email-login').value.trim();
 	const password = document.querySelector('#password-login').value.trim();
 
 	if (email && password) {
@@ -40,7 +40,7 @@ const signupFormHandler = async (event) => {
 
 		if (response.ok) {
 			// If successful, redirect the browser to the pets for adoption page
-			document.location.replace('/adoptpets');
+			document.location.replace('/adoptpet');
 		} else {
 			alert(response.statusText);
 		}

@@ -1,86 +1,111 @@
+/* Custom global styling */
+:root {
+    font-size: 62.5%;
+    --font-main: 'Poppins', sans-serif;
+    --brown: #7d5445;
+    --pink: #fab49a;
+    --light-pink: #fab49a2b;
+}
+
+/* Custom font and size styling */
+body {
+    color: var(--brown);
+    font-family: var(--font-main);
+    font-weight: 300;
+    font-size: 1.65rem;
+    line-height: 1.7;
+}
+
+h1 {
+    font-size: 5rem;
+}
+ 
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+a {
+	color: var(--brown);
+}
+
+.form-control {
+    font-size: 1.5rem;
+}
+
+.italics {
+    font-style: italic;
+}
+.bold {
+    font-weight: 500;
+}
+
+
+/* Custom button styling */
+.btn-secondary {
+    font-size: 1.65rem;
+    background-color: var(--brown);
+    border-color: var(--brown);
+}
+
+/* Custom header styling */
+.header .logo {
+	height: 100%;
+	padding: 20px;
+}
+
 .navbar {
 	padding: 40px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	text-align: left;
-	background: #fab49a;
-	color: #7d5445;
+	background-color: var(--pink);
+	color: var(--brown);
 	width: 100%;
 	height: 180px;
 	padding: 20px;
 	margin-top: 0px;
 }
 
-body {
-	color: #7d5445;
-	background: #fbedca;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-
-.header logo {
-	height: 100%;
-	padding: 20px;
-}
-
-.btn {
-	background-color: #7d5445;
-}
-
-.jumbotron {
-	padding: 2rem 4rem;
-}
-
-a {
-	color: #7d5445;
-}
-
-img {
+/* Custom image styling */
+.tile {
 	max-width: 100%;
 	height: auto;
-	border: 1px solid #ddd;
 	border-radius: 4px;
 	padding: 5px;
 	width: 150px;
+    object-fit: cover;
 }
 
-.logo {
-	border: 0;
+.large-image {
+    max-width: 100%;
+	height: auto;
+	padding: none;
+    object-fit: cover;
 }
 
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
+/* Custom card styling */
 .bg-card {
-	background-color: #ddd;
+	background-color: var(--light-pink);
 	width: 50rem;
 }
 
-.pet-label{
-	color:#0799a5;
-	letter-spacing: 1px;
-	font-weight: bold;
+#adoption-form {
+	background-color: var(--light-pink);
+	width: 50rem;
 }
 
-.pet-info{
-	letter-spacing: 0.5px;
-	font-size: 1.2rem;
-}
-
-.comment-title{
-	font-size: 1.5rem;
-	color:#0799a5;
-	letter-spacing: 1px;
-	padding-top: 10%;
-}
-
-.back-link{
-	padding-top: 5%;
-	text-decoration: underline;
+/* Custom footer styling */
+footer {
+    background: var(--pink);
+	color: var(--brown);
+    font-size: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 100px;
 }

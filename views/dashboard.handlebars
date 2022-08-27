@@ -1,27 +1,38 @@
-<div>
-    WELCOME {{username}} 
-    
-</div>
-
-<div id="pet-list">
-    {{#each pets}}
-    <div class="pet">
-        <div><label>Name:&nbsp;</label><span>{{this.name}}</span></div>
-        <div><label>Type:&nbsp;</label><span>{{this.type}}</span></div>
-        <div><label>Location:&nbsp;</label><span>{{this.location}}</span></div>
-        <div><label>Birthday:&nbsp;</label><span>{{this.birthday}}</span></div>
-        <div><label>Sex:&nbsp;</label><span>{{this.sex}}</span></div>
-        <div><label>Breed:&nbsp;</label><span>{{this.breed}}</span></div>
-        <div><label>Size:&nbsp;</label><span>{{this.size}}</span></div>
-        <div><label>Colour:&nbsp;</label><span>{{this.colour}}</span></div>
-        <div><label>Personality:&nbsp;</label><span>{{this.personality}}</span></div>
-        <div><img src="{{this.photo}}"/></div>
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-7 mx-auto">
+            <div class="text-center">
+                <br>
+                <h2>Welcome, {{username}}!</h2>
+                <br>
+            {{#if pets.length}}
+                <p>Here is a list of the pets ypu currently have up for adoption.</p>
+                <br>
+            </div>
+            <div id="pet-list">
+                {{#each pets as |pet|}}
+                <div class="container">
+                    <div class="row bg-card d-flex mx-auto shadow-sm p-3 bg-body rounded justify-content-between">
+                        <span class="col-8">
+                            <h3>
+                                <a class="text-decoration-none" href="/adoptpet/{{pet.type}}/{{pet.id}}">{{pet.name}}</a> 
+                            </h3>
+                            <p class="link-dark">is a {{pet.sex}} {{pet.breed}} located in {{pet.location}}.</p> 
+                            <a class="italics" href="/adoptpet/{{pet.type}}/{{pet.id}}">See comments →</a>
+                            <div><button class="delete-pet" class="btn btn-secondary btn-lg my-4 px-5" data-pet-id="{{this.id}}">DELETE LISTING</button></div>
+                        </span>
+                        <img class="tile col-3" src="{{pet.photo}}" alt="Photo of pet">
+                    </div>
+                    <br>
+                </div>
+                {{/each}}
+            </div>
+            {{else}}
+                <p>You currently have no pets listed for adoption.</p>
+                <img src="/images/header_logo.png" alt="Pawfect Match" class="header logo"/>
+            {{/if}}
+        </div>
     </div>
-    <button class="delete-pet" data-pet-id="{{this.id}}">Delete pet</button>
-    {{/each}}
 </div>
 
-<div>
-    <a href="/postForAdoption">Add a pet</a>
-</div>
-<script src="/js/deletepet.js"></script>
+<script src="/js/deletePet.js"></script>

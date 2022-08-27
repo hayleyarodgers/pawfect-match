@@ -4,7 +4,23 @@ const withAuth = require('../utils/auth');
 
 //render homepage
 router.get('/', async (req, res) => {
-	res.render('homepage');
+	let user = null;
+
+	try
+	{
+		const userData = await User.findByPk(req.session.user_id, {
+			attributes: { exclude: ['password'] },
+		});
+
+		user = userData.get({ plain: true });
+	}  catch (err) {
+		user = null;
+	}
+	
+	res.render('homepage', {
+		...user,
+		logged_in: !!req.session.logged_in,
+	});
 });
 
 //render the post for adoption page

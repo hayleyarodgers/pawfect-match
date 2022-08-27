@@ -81,6 +81,15 @@ a {
 
 /* Custom image styling */
 .tile {
+    max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+    padding: 5px;
+	width: 150px;
+    object-fit: cover;
+}
+
+.pet-photo {
 	height: auto;
 	border-radius: 4px;
     object-fit: scale-down;

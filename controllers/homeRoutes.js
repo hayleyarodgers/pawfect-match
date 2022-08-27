@@ -4,11 +4,27 @@ const withAuth = require('../utils/auth');
 
 //render homepage
 router.get('/', async (req, res) => {
-	res.render('homepage');
+	let user = null;
+
+	try
+	{
+		const userData = await User.findByPk(req.session.user_id, {
+			attributes: { exclude: ['password'] },
+		});
+
+		user = userData.get({ plain: true });
+	}  catch (err) {
+		user = null;
+	}
+	
+	res.render('homepage', {
+		...user,
+		logged_in: !!req.session.logged_in,
+	});
 });
 
 //render the post for adoption page
-router.get('/postforadoption', async (req, res) => {
+router.get('/postforadoption', withAuth, async (req, res) => {
 	try {
 		const userData = await User.findByPk(req.session.user_id, {
 			attributes: { exclude: ['password'] },
@@ -25,7 +41,7 @@ router.get('/postforadoption', async (req, res) => {
 });
 
 //render pets adoption page
-router.get('/adoptpet', async (req, res) => {
+router.get('/adoptpet', withAuth, async (req, res) => {
 	try {
 		const petData = await Pet.findAll();
 		if (!petData) {
@@ -43,7 +59,7 @@ router.get('/adoptpet', async (req, res) => {
 });
 
 //render cat list
-router.get('/adoptpet/cat', async (req, res) => {
+router.get('/adoptpet/cat', withAuth, async (req, res) => {
 	try {
 		const catsData = await Pet.findAll({
 			where: { type: 'cat' },
@@ -64,7 +80,7 @@ router.get('/adoptpet/cat', async (req, res) => {
 });
 
 //render each cat page
-router.get('/adoptpet/cat/:id', async (req, res) => {
+router.get('/adoptpet/cat/:id', withAuth, async (req, res) => {
 	try {
 		const catData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },
@@ -88,7 +104,7 @@ router.get('/adoptpet/cat/:id', async (req, res) => {
 });
 
 //render dog list
-router.get('/adoptpet/dog', async (req, res) => {
+router.get('/adoptpet/dog', withAuth, async (req, res) => {
 	try {
 		const dogsData = await Pet.findAll({
 			where: { type: 'dog' },
@@ -109,7 +125,7 @@ router.get('/adoptpet/dog', async (req, res) => {
 });
 
 //render each dog page
-router.get('/adoptpet/dog/:id', async (req, res) => {
+router.get('/adoptpet/dog/:id', withAuth, async (req, res) => {
 	try {
 		const dogData = await Pet.findByPk(req.params.id, {
 			attributes: { exclude: ['password'] },

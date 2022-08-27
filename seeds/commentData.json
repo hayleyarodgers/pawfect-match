@@ -1,7 +1,12 @@
 [
 	{
-		"user_id": 1,
+		"user_id": 2,
 		"user_comment": "I would love to meet your pet!",
+		"pet_id": 1
+	},
+    {
+		"user_id": 1,
+		"user_comment": "Awesome, when are you free?",
 		"pet_id": 1
 	},
 	{
@@ -10,8 +15,23 @@
 		"pet_id": 2
 	},
 	{
-		"user_id": 3,
+		"user_id": 6,
+		"user_comment": "Wow, when can I come see Lola?",
+		"pet_id": 3
+	},
+    {
+		"user_id": 1,
 		"user_comment": "<3",
-		"pet_id": 1
+		"pet_id": 4
+	},
+    {
+		"user_id": 3,
+		"user_comment": "So cute",
+		"pet_id": 5
+	},
+    {
+		"user_id": 3,
+		"user_comment": "I hope Sizzles finds the perfect home.",
+		"pet_id": 6
 	}
 ]

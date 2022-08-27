@@ -58,27 +58,32 @@ a {
 }
 
 .navbar {
-	padding: 40px;
-	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	text-align: left;
 	background-color: var(--pink);
 	color: var(--brown);
-	width: 100%;
 	height: 180px;
 	padding: 20px;
 	margin-top: 0px;
 }
 
+.navbar-nav {
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+#mobile-navbar {
+    background-color: var(--pink);
+    opacity: 85%;
+    text-align: center;
+}
+
 /* Custom image styling */
 .tile {
-	max-width: 100%;
 	height: auto;
 	border-radius: 4px;
-	padding: 5px;
-	width: 150px;
-    object-fit: cover;
+    object-fit: scale-down;
 }
 
 .large-image {
@@ -91,12 +96,10 @@ a {
 /* Custom card styling */
 .bg-card {
 	background-color: var(--light-pink);
-	width: 50rem;
 }
 
 #adoption-form {
 	background-color: var(--light-pink);
-	width: 50rem;
 }
 
 /* Custom footer styling */

@@ -63,7 +63,7 @@ a {
 	text-align: left;
 	background-color: var(--pink);
 	color: var(--brown);
-	height: 180px;
+	height: 20%;
 	padding: 20px;
 	margin-top: 0px;
 }
@@ -121,3 +121,4 @@ footer {
     width: 100%;
     margin-top: 100px;
 }
+

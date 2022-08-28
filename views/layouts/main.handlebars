@@ -1,155 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-		<!--Bootstrap-->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"/>
-        <!--Fonts-->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
-        <!--Custom styling-->
-        <link rel="stylesheet" href="/css/reset.css"/>
-		<link rel="stylesheet" href="/css/style.css"/>
-        <!--Favicon -->
-		<link rel="shortcut icon" type="image/ico" href="/images/favicon_lrg.png"/>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-		<title>Find your pawfect match for pet adoption</title>
-	</head>
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
+	<!--Fonts-->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+	<!--Custom styling-->
+	<link rel="stylesheet" href="/css/reset.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<!--Favicon -->
+	<link rel="shortcut icon" type="image/ico" href="/images/favicon_lrg.png" />
 
-	<body>
+	<title>Find your pawfect match for pet adoption</title>
+</head>
 
-    <!-- Checks if the user is logged in and renders the correct nav bar -->
-    {{#if logged_in}}
-     	<header>
-			<div class="collapse navbar-collapse justify-content-around py-4" id="mobile-navbar">
+<body>
+
+	<!-- Checks if the user is logged in and renders the correct nav bar -->
+	{{#if logged_in}}
+	<header>
+		<div class="collapse navbar-collapse justify-content-around py-4" id="mobile-navbar">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link font-weight-bold text-reset h4" href="/postforadoption">Post your pet
+						<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link font-weight-bold text-reset h4" href="/adoptpet">Pets for adoption</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link font-weight-bold text-reset h4" href="/dashboard">Your dashboard</a>
+				</li>
+			</ul>
+			<div>
+				<a class="btn btn-secondary px-5 mx-3 logout-button" href="/" role="button">LOG OUT</a>
+			</div>
+		</div>
+		<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+			<a class="navbar-brand" href="/">
+				<img src="/images/header_logo.png" alt="Pawfect Match" class="header logo" />
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-navbar"
+				aria-controls="mobile-navbar" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-around">
 				<ul class="navbar-nav">
 					<li class="nav-item active">
-						<a
-							class="nav-link font-weight-bold text-reset h4"
-							href="/postforadoption"
-							>Post your pet
-							<span class="sr-only">(current)</span></a
-						>
-					</li> 
-					<li class="nav-item">
-						<a
-							class="nav-link font-weight-bold text-reset h4"
-							href="/adoptpet"
-							>Pets for adoption</a
-						>
+						<a class="nav-link font-weight-bold text-reset h4" href="/postforadoption">Post your pet
+							<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a
-							class="nav-link font-weight-bold text-reset h4"
-							href="/dashboard"
-							>Your dashboard</a
-						>
+						<a class="nav-link font-weight-bold text-reset h4" href="/adoptpet">Pets for adoption</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link font-weight-bold text-reset h4" href="/dashboard">Your dashboard</a>
 					</li>
 				</ul>
-				<div>
-					<a class="btn btn-secondary px-5 mx-3 logout-button" href="/" role="button"
-					>LOG OUT</a
-					>
+				<div class="topnav">
+					<a class="btn btn-secondary btn-lg px-5 mx-3 logout-button" href="/" role="button">LOG OUT</a>
 				</div>
 			</div>
-			<nav class="navbar sticky-top navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="/">
-                    <img
-                        src="/images/header_logo.png"
-                        alt="Pawfect Match"
-                        class="header logo"
-                    />
-                </a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-toggle="collapse"
-					data-target="#mobile-navbar"
-					aria-controls="mobile-navbar"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				    >
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse justify-content-around">
-					<ul class="navbar-nav">
-						<li class="nav-item active">
-							<a
-								class="nav-link font-weight-bold text-reset h4"
-								href="/postforadoption"
-								>Post your pet
-								<span class="sr-only">(current)</span></a
-							>
-						</li> 
-						<li class="nav-item">
-							<a
-								class="nav-link font-weight-bold text-reset h4"
-								href="/adoptpet"
-								>Pets for adoption</a
-							>
-						</li>
-						<li class="nav-item">
-							<a
-								class="nav-link font-weight-bold text-reset h4"
-								href="/dashboard"
-								>Your dashboard</a
-							>
-						</li>
-					</ul>
-					<div class="topnav">
-						<a class="btn btn-secondary btn-lg px-5 mx-3 logout-button" href="/" role="button"
-						>LOG OUT</a
-						>
-					</div>
-				</div>
-			</nav>
-		</header>
+		</nav>
+	</header>
 
-    {{else}}
-    	<header class="navbar">
-			<article>
-                <a href="/">
-				<img
-					src="/images/header_logo.png"
-					alt="Pawfect Match"
-					class="header logo"
-				/>
-                </a>
-			</article>
+	{{else}}
+	<header class="navbar">
+		<article>
+			<a href="/">
+				<img src="/images/header_logo.png" alt="Pawfect Match" class="header logo" />
+			</a>
+		</article>
+		<div class="topnav d-flex">
+			<a class="btn btn-secondary btn-lg px-5 mx-3 " id='nav-login-button' href="/login" role="button">LOG
+				IN</a>
+			<a class="btn btn-secondary btn-lg px-5 mx-3 " id='nav-signup-button' href="/login" role="button">SIGN
+				UP</a>
+		</div>
 
-			<div class="topnav">
-				<a class="btn btn-secondary btn-lg px-5 mx-3" href="/login" role="button"
-					>LOG IN</a
-				>
-                <a class="btn btn-secondary btn-lg px-5 mx-3" href="/login" role="button"
-					>SIGN UP</a
-				>
-			</div>
-		</header>
-    {{/if}}
-        <!-- Render the sub layout -->
-        {{{body}}}
-        <!-- footer remains on each page -->
-        <br>
-        <br>
-        <br>
-        <footer class="text-center footer mt-8 p-4">
-            © 2022:
-            <a
-                class="text-reset fw-bold"
-                href="https://github.com/hayleyarodgers/pawfect-match"
-                >Pawfect Match</a>
-        </footer>
+	</header>
+	{{/if}}
+	<!-- Render the sub layout -->
+	{{{body}}}
+	<!-- footer remains on each page -->
+	<br>
+	<br>
+	<br>
+	<footer class="text-center footer mt-8 p-4">
+		© 2022:
+		<a class="text-reset fw-bold" href="https://github.com/hayleyarodgers/pawfect-match">Pawfect Match</a>
+	</footer>
 
-		<!--Logout script-->
-		<script src="/js/logout.js"></script>
+	<!--Logout script-->
+	<script src="/js/logout.js"></script>
 
-		<!-- Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </body>
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+
 </html>

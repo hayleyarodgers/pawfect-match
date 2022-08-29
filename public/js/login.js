@@ -47,6 +47,11 @@ const signupFormHandler = async (event) => {
 	}
 };
 
+if (window.location.pathname === '/login') {
+	document.getElementById('nav-login-button').style.display = 'none'
+	document.getElementById('nav-signup-button').style.display = 'none'
+}
+
 document
 	.querySelector('#login-button')
 	.addEventListener('click', loginFormHandler);

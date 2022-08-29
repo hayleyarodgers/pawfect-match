@@ -59,6 +59,18 @@ To create Pawfect Match, our group used:
 
 ![Screenshot of application](./assets/images/screenshot-of-application-login.png)
 
+![Screenshot of application](./assets/images/screenshot-of-application-dashboard.png)
+
+![Screenshot of application](./assets/images/screenshot-of-application-postyourpet.png)
+
+![Screenshot of application](./assets/images/screenshot-of-application-petforadoption.png)
+
+![Screenshot of application](./assets/images/screenshot-of-application-petlist.png)
+
+![Screenshot of application](./assets/images/screenshot-of-application-individualpet.png)
+
+![Screenshot of application](./assets/images/screenshot-of-application-comment.png)
+
 ## Access
 
 ### Code Repository

@@ -7,6 +7,7 @@
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
+* [Authors](#authors)
 
 ## Description
 
@@ -52,6 +53,12 @@ To create Pawfect Match, our group used:
 - Connect-session-sequelize
 - Nodemailer
 - And, Heroku.
+
+### Other Concepts Used
+
+- ES6 JavaScript features: classes and constructors
+- MVC (Model-View-Controller) design pattern
+- And, authentication.
 
 ### Screenshots of Application
 
@@ -111,3 +118,11 @@ Alternatively, to use the live application, click [here](https://pawfect---match
 - We used the [bcrypt](https://www.npmjs.com/package/bcrypt) package to hash passwords.
 - We used the [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/sequelize) packages to add authentication.
 - We used the [nodemailer](https://www.npmjs.com/package/nodemailer) package to send email notifications.
+
+## Authors
+
+- [Wendy Marcela Mejia Ortiz](https://github.com/marcelamejiao) - Models
+- [Vanessa Bloom](https://github.com/NessJade96) - Views and nodemailer
+- [Chujun Liu](https://github.com/dorisliu333) - Controllers and project idea
+- [Hayley Rodgers](https://github.com/hayleyarodgers) - front-end design and admin
+- [Andrea Bell](https://github.com/AJoanBell) - branding
